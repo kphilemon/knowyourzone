@@ -1,0 +1,645 @@
+{
+  "states": [
+    {
+      "name": "Selangor",
+      "total": 12,
+      "districts": [
+        {
+          "name": "Import",
+          "total": 57
+        },
+        {
+          "name": "Sepang",
+          "total": 11
+        },
+        {
+          "name": "Gombak",
+          "total": 1
+        },
+        {
+          "name": "Petaling",
+          "total": 0
+        },
+        {
+          "name": "Hulu Langat",
+          "total": 0
+        },
+        {
+          "name": "Klang",
+          "total": 0
+        },
+        {
+          "name": "Kuala Selangor",
+          "total": 0
+        },
+        {
+          "name": "Kuala Langat",
+          "total": 0
+        },
+        {
+          "name": "Sabak Bernam",
+          "total": 0
+        },
+        {
+          "name": "Hulu Selangor",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Sarawak",
+      "total": 11,
+      "districts": [
+        {
+          "name": "Kuching",
+          "total": 7
+        },
+        {
+          "name": "Bintulu",
+          "total": 2
+        },
+        {
+          "name": "Kota Samarahan",
+          "total": 1
+        },
+        {
+          "name": "Sibu",
+          "total": 1
+        },
+        {
+          "name": "Sri Aman",
+          "total": 0
+        },
+        {
+          "name": "Asajaya",
+          "total": 0
+        },
+        {
+          "name": "Bau",
+          "total": 0
+        },
+        {
+          "name": "Lundu",
+          "total": 0
+        },
+        {
+          "name": "Matu",
+          "total": 0
+        },
+        {
+          "name": "Tanjung Manis",
+          "total": 0
+        },
+        {
+          "name": "Tebedu",
+          "total": 0
+        },
+        {
+          "name": "Limbang",
+          "total": 0
+        },
+        {
+          "name": "Serian",
+          "total": 0
+        },
+        {
+          "name": "Miri",
+          "total": 0
+        },
+        {
+          "name": "Sarikei",
+          "total": 0
+        },
+        {
+          "name": "Simunjan",
+          "total": 0
+        },
+        {
+          "name": "Mukah",
+          "total": 0
+        },
+        {
+          "name": "Betong",
+          "total": 0
+        },
+        {
+          "name": "Lawas",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Johor",
+      "total": 8,
+      "districts": [
+        {
+          "name": "Johor Bahru",
+          "total": 8
+        },
+        {
+          "name": "Batu Pahat",
+          "total": 0
+        },
+        {
+          "name": "Kluang",
+          "total": 0
+        },
+        {
+          "name": "Kulai",
+          "total": 0
+        },
+        {
+          "name": "Mersing",
+          "total": 0
+        },
+        {
+          "name": "Muar",
+          "total": 0
+        },
+        {
+          "name": "Pontian",
+          "total": 0
+        },
+        {
+          "name": "Segamat",
+          "total": 0
+        },
+        {
+          "name": "Kota Tinggi",
+          "total": 0
+        },
+        {
+          "name": "Tangkak",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Kuala Lumpur",
+      "total": 7,
+      "districts": [
+        {
+          "name": "Lembah Pantai",
+          "total": 3
+        },
+        {
+          "name": "Cheras",
+          "total": 3
+        },
+        {
+          "name": "Titiwangsa",
+          "total": 1
+        },
+        {
+          "name": "Kepong",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Sabah",
+      "total": 4,
+      "districts": [
+        {
+          "name": "Kota Kinabalu",
+          "total": 1
+        },
+        {
+          "name": "Tuaran",
+          "total": 1
+        },
+        {
+          "name": "Keningau",
+          "total": 1
+        },
+        {
+          "name": "Nabawan",
+          "total": 1
+        },
+        {
+          "name": "Beaufort",
+          "total": 0
+        },
+        {
+          "name": "Kinabatangan",
+          "total": 0
+        },
+        {
+          "name": "Kota Belud",
+          "total": 0
+        },
+        {
+          "name": "Kunak",
+          "total": 0
+        },
+        {
+          "name": "Lahad Datu",
+          "total": 0
+        },
+        {
+          "name": "Papar",
+          "total": 0
+        },
+        {
+          "name": "Putatan",
+          "total": 0
+        },
+        {
+          "name": "Sandakan",
+          "total": 0
+        },
+        {
+          "name": "Semporna",
+          "total": 0
+        },
+        {
+          "name": "Sipitang",
+          "total": 0
+        },
+        {
+          "name": "Tawau",
+          "total": 0
+        },
+        {
+          "name": "Ranau",
+          "total": 0
+        },
+        {
+          "name": "Kota Marudu",
+          "total": 0
+        },
+        {
+          "name": "Tambunan",
+          "total": 0
+        },
+        {
+          "name": "Penampang",
+          "total": 0
+        },
+        {
+          "name": "Beluran",
+          "total": 0
+        },
+        {
+          "name": "Pitas",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Kedah",
+      "total": 2,
+      "districts": [
+        {
+          "name": "Import",
+          "total": 2
+        },
+        {
+          "name": "Baling",
+          "total": 0
+        },
+        {
+          "name": "Kota Setar",
+          "total": 0
+        },
+        {
+          "name": "Kuala Muda",
+          "total": 0
+        },
+        {
+          "name": "Kubang Pasu",
+          "total": 0
+        },
+        {
+          "name": "Kulim",
+          "total": 0
+        },
+        {
+          "name": "Langkawi",
+          "total": 0
+        },
+        {
+          "name": "Padang Terap",
+          "total": 0
+        },
+        {
+          "name": "Pendang",
+          "total": 0
+        },
+        {
+          "name": "Bandar Bahru",
+          "total": 0
+        },
+        {
+          "name": "Sik",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "N Sembilan",
+      "total": 2,
+      "districts": [
+        {
+          "name": "Import",
+          "total": 0
+        },
+        {
+          "name": "Seremban",
+          "total": 1
+        },
+        {
+          "name": "Jelebu",
+          "total": 0
+        },
+        {
+          "name": "Jempol",
+          "total": 0
+        },
+        {
+          "name": "Kuala Pilah",
+          "total": 0
+        },
+        {
+          "name": "Port Dickson",
+          "total": 0
+        },
+        {
+          "name": "Rembau",
+          "total": 0
+        },
+        {
+          "name": "Tampin",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Putrajaya",
+      "total": 1,
+      "districts": [
+        {
+          "name": "Putrajaya",
+          "total": 1
+        }
+      ]
+    },
+    {
+      "name": "Melaka",
+      "total": 1,
+      "districts": [
+        {
+          "name": "Alor Gajah (Import)",
+          "total": 0
+        },
+        {
+          "name": "Melaka Tengah (Import)",
+          "total": 0
+        },
+        {
+          "name": "Alor Gajah",
+          "total": 1
+        },
+        {
+          "name": "Jasin",
+          "total": 0
+        },
+        {
+          "name": "Melaka Tengah",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Kelantan",
+      "total": 0,
+      "districts": [
+        {
+          "name": "Bachok",
+          "total": 0
+        },
+        {
+          "name": "Gua Musang",
+          "total": 0
+        },
+        {
+          "name": "Kota Bharu",
+          "total": 0
+        },
+        {
+          "name": "Tanah Merah",
+          "total": 0
+        },
+        {
+          "name": "Kuala Krai",
+          "total": 0
+        },
+        {
+          "name": "Pasir Mas",
+          "total": 0
+        },
+        {
+          "name": "Pasir Puteh",
+          "total": 0
+        },
+        {
+          "name": "Tumpat",
+          "total": 0
+        },
+        {
+          "name": "Jeli",
+          "total": 0
+        },
+        {
+          "name": "Import",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "P Pinang",
+      "total": 0,
+      "districts": [
+        {
+          "name": "Seberang Perai Tengah",
+          "total": 0
+        },
+        {
+          "name": "Timur Laut",
+          "total": 0
+        },
+        {
+          "name": "Seberang Perai Selatan",
+          "total": 0
+        },
+        {
+          "name": "Barat Daya",
+          "total": 0
+        },
+        {
+          "name": "Seberang Perai Utara",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Pahang",
+      "total": 0,
+      "districts": [
+        {
+          "name": "Bentong",
+          "total": 0
+        },
+        {
+          "name": "Jerantut",
+          "total": 0
+        },
+        {
+          "name": "Bera",
+          "total": 0
+        },
+        {
+          "name": "Raub",
+          "total": 0
+        },
+        {
+          "name": "Lipis",
+          "total": 0
+        },
+        {
+          "name": "Cameron Highlands",
+          "total": 0
+        },
+        {
+          "name": "Kuantan",
+          "total": 0
+        },
+        {
+          "name": "Maran",
+          "total": 0
+        },
+        {
+          "name": "Pekan",
+          "total": 0
+        },
+        {
+          "name": "Temerloh",
+          "total": 0
+        },
+        {
+          "name": "Rompin",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Perak",
+      "total": 0,
+      "districts": [
+        {
+          "name": "Hilir Perak",
+          "total": 0
+        },
+        {
+          "name": "Bagan Datuk",
+          "total": 0
+        },
+        {
+          "name": "Kinta",
+          "total": 0
+        },
+        {
+          "name": "Perak Tengah",
+          "total": 0
+        },
+        {
+          "name": "Larut, Matang, Selama",
+          "total": 0
+        },
+        {
+          "name": "Manjung",
+          "total": 0
+        },
+        {
+          "name": "Kuala Kangsar",
+          "total": 0
+        },
+        {
+          "name": "Hulu Perak",
+          "total": 0
+        },
+        {
+          "name": "Kerian",
+          "total": 0
+        },
+        {
+          "name": "Batang Padang",
+          "total": 0
+        },
+        {
+          "name": "Muallim",
+          "total": 0
+        },
+        {
+          "name": "Kampar",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Perlis",
+      "total": 0,
+      "districts": [
+        {
+          "name": "Perlis",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Terengganu",
+      "total": 0,
+      "districts": [
+        {
+          "name": "Besut",
+          "total": 0
+        },
+        {
+          "name": "Dungun",
+          "total": 0
+        },
+        {
+          "name": "Kemaman",
+          "total": 0
+        },
+        {
+          "name": "Kuala Terengganu",
+          "total": 0
+        },
+        {
+          "name": "Marang",
+          "total": 0
+        },
+        {
+          "name": "Kuala Nerus",
+          "total": 0
+        },
+        {
+          "name": "Setiu",
+          "total": 0
+        }
+      ]
+    },
+    {
+      "name": "Labuan",
+      "total": 0,
+      "districts": [
+        {
+          "name": "Labuan",
+          "total": 0
+        }
+      ]
+    }
+  ],
+  "last_updated": 1594785600
+}
