@@ -14,7 +14,7 @@ const htmlSelector = 'ul.uk-accordion-districts';
 async function scrape() {
     try {
         logger.info('Data scrapping started');
-        const browser = await puppeteer.launch();
+        const browser = await puppeteer.launch({args: ['--no-sandbox']});
         const page = await browser.newPage();
         await page.goto(dataSource);
         await page.waitForSelector(htmlSelector);

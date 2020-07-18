@@ -26,6 +26,10 @@ const httpLogger = morgan('common', {
 });
 
 
+// Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
+app.enable('trust proxy');
+
+
 // mount middlewares
 app.use(httpLogger);
 app.use(helmet());
