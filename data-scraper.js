@@ -2,9 +2,9 @@ const fs = require('fs').promises;
 const path = require('path');
 const cache = require('memory-cache');
 const puppeteer = require('puppeteer');
-const Handlebars = require('handlebars');
 const mailer = require('./utilities/mailer');
 const logger = require('./utilities/logger');
+const HTMLRenderer = require('./utilities/html-renderer');
 
 
 const dataSource = 'https://newslab.malaysiakini.com/covid-19/en';
@@ -27,8 +27,8 @@ async function scrape() {
             return;
         }
 
-        // compile index.html and cache data if no errors
-        await compileIndex(data);
+        // render index.html and cache data if no errors
+        await HTMLRenderer.renderIndex(data);
         cache.put('data', data);
 
         logger.info('Data scrapping successful');
@@ -93,26 +93,13 @@ function extractDataFromDOM(selector) {
 }
 
 
-// outputs static html to index.html with data
-async function compileIndex(data) {
-    try {
-        const content = await fs.readFile(path.join(__dirname, 'templates/index.html'), 'utf8');
-        const template = await Handlebars.compile(content);
-        const html = template(data);
-        await fs.writeFile(path.join(__dirname, 'public/index.html'), html, 'utf8');
-    } catch (e) {
-        throw `Error compiling index.html: ${e.toString()}`;
-    }
-}
-
-
 function notifyAdmin(message) {
     if (process.env.ADMIN_NOTIFICATION_ENABLED !== 'true') return;
 
     const mail = {
         from: process.env.SMTP_EMAIL_ADDRESS,
         to: process.env.ADMIN_EMAIL,
-        subject: `[${(message.error) ? 'ERROR' : 'SUCCESS'}] COVID-19 Zones Data Scraping`,
+        subject: `[${(message.error) ? 'ERROR' : 'SUCCESS'}] KnowYourZone Data Scraping`,
         html: `<p>TIMESTAMP: ${new Date().toLocaleString()}</p>
         <pre>${JSON.stringify(message, null, 4)}</pre>`
     };

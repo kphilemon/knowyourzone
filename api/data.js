@@ -2,7 +2,7 @@ const express = require('express');
 const cache = require('memory-cache');
 const router = express.Router();
 
-router.get(['/', '/latest'], (req, res) => {
+router.get(['/covid19', '/covid19/latest'], (req, res) => {
     const data = cache.get('data');
     if (data === null) {
         return res.status(404).json({message: 'Data currently unavailable'});

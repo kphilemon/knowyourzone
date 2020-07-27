@@ -5,3 +5,5 @@ build
 npm-debug.log
 .DS_Store
 logs
+public/robots.txt
+public/index.html

@@ -3,6 +3,7 @@ const cache = require('memory-cache');
 const Joi = require('@hapi/joi');
 const router = express.Router();
 const logger = require('../utilities/logger');
+const HTMLRenderer = require('../utilities/html-renderer');
 
 
 router.use((req, res, next) => {
@@ -21,7 +22,7 @@ router.use(express.json(), (err, req, res, next) => {
     next();
 });
 
-router.put('/', (req, res) => {
+router.put('/', async (req, res) => {
     const districtObjSchema = Joi.object({
         name: Joi.string().required(),
         total: Joi.number().integer().min(0).required(),
@@ -47,7 +48,13 @@ router.put('/', (req, res) => {
         last_updated: Math.trunc(Date.now() / 1000)
     };
 
-    // update data in cache
+    try {
+        await HTMLRenderer.renderIndex(newData);
+    } catch (e) {
+        logger.error(e.toString());
+        return res.status(500).json({message: e.toString()});
+    }
+
     cache.put('data', newData);
     res.json(newData);
 });
