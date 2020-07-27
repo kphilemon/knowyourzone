@@ -5,7 +5,6 @@ const minify = require('html-minifier').minify;
 
 
 Handlebars.registerHelper('color', getColor);
-Handlebars.registerHelper('formatDate', formatDate);
 Handlebars.registerHelper('extract_data_by_state_id', extractDataByStateId);
 
 
@@ -53,17 +52,6 @@ async function renderIndex(data) {
 
 function getColor(total) {
     return (total > 40) ? 'red' : (total > 0) ? 'yellow' : (total === 0) ? 'green' : '';
-}
-
-
-function formatDate(timestamp) {
-    return new Date(timestamp * 1000).toLocaleString('en-GB', {
-        day: '2-digit',
-        month: 'numeric',
-        year: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
-    });
 }
 
 

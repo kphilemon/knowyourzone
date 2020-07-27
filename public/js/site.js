@@ -1,13 +1,32 @@
+const isLargeScreen = window.matchMedia("(min-width: 768px)").matches;
 const searchInput = $('#search');
 const dataList = $('#data-list');
 const searchResultList = $('#search-result-list');
 const noResultsText = $('#text-no-results');
 const zoomIn = $('#zoom-in');
 const zoomOut = $('#zoom-out');
+
 const scrollableList = $('#scrollable-list');
 searchResultList.removeClass('d-none').hide();
 
+const timestamp = $('.timestamp');
+timestamp.text(function (_, text) {
+    return new Date(text * 1000).toLocaleString('en-MY', {
+        day: '2-digit',
+        month: 'numeric',
+        year: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+    }).toUpperCase();
+});
+timestamp.removeClass('d-none').show();
+
 searchInput.on('input', function () {
+    $('html, body').animate({
+        scrollTop: searchInput.offset().top - 20
+    }, 300);
+
     const searchTerm = this.value.trim().toLowerCase();
 
     if (searchTerm === '') {
@@ -32,12 +51,6 @@ searchInput.on('input', function () {
     searchResultList.show();
 });
 
-searchInput.click(function () {
-    $('html, body').animate({
-        scrollTop: searchInput.offset().top - 20
-    }, 300);
-});
-
 const mobilePanZoomEventHandler = {
     haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel'],
     init: function (options) {
@@ -51,11 +64,6 @@ const mobilePanZoomEventHandler = {
 
         // Enable pinch
         this.hammer.get('pinch').set({enable: true});
-
-        // Handle double tap
-        this.hammer.on('doubletap', function (ev) {
-            instance.zoomIn()
-        });
 
         // Handle pan
         this.hammer.on('panstart panmove', function (ev) {
@@ -153,11 +161,16 @@ tippy('path[data-name][data-total]', {
     content(reference) {
         const name = reference.getAttribute('data-name');
         const total = reference.getAttribute('data-total');
-        return `<div class="pop-up border-top-${(total > 40) ? 'red' : (total > 0) ? 'yellow' : 'green'}">${name}<br>(${(total < 0)? 'No data available': `${total} active case${(total === '1') ? '' : 's'}`})</div>`;
+        return `<div class="pop-up border-top-${(total > 40) ? 'red' : (total > 0) ? 'yellow' : 'green'}">${name}<br>(${(total < 0) ? 'No data available' : `${total} active case${(total === '1') ? '' : 's'}`})</div>`;
     },
     allowHTML: true,
     animation: 'shift-toward-extreme',
-    followCursor: 'default',
-    hideOnClick: false,
+    followCursor: isLargeScreen ? 'default' : 'initial',
+    hideOnClick: !isLargeScreen,
+    trigger: isLargeScreen ? 'mouseenter' : 'click',
     delay: [200, null]
+});
+
+$('#map').click(function () {
+    searchInput.blur();
 });

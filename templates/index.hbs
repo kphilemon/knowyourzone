@@ -71,7 +71,7 @@
             <div class="col-md-left order-2 order-md-1" id="list-col">
                 <div class="p-3" id="list-container">
                     <div class="position-relative">
-                        <input type="search" class="form-control" id="search" placeholder="Search for districts/states">
+                        <input autocomplete="off" type="search" class="form-control" id="search" placeholder="Search for districts/states">
                         <svg width="0.85em" height="0.85em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor"
                              xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd"
@@ -151,7 +151,7 @@
                 </svg>
 
                 <div class="absolute-top-center m-3 d-md-none">
-                    <p class="text-last-updated text-center">Last updated:<br>{{formatDate last_updated}}</p>
+                    <p class="text-last-updated text-center">Last updated:<br><span class="timestamp d-none">{{last_updated}}</span></p>
                 </div>
 
                 <div class="absolute-bottom-left m-2 d-none d-md-block">
@@ -176,7 +176,7 @@
                             <p class="text-legend">> 40 active cases</p>
                         </div>
                         <div class="col-12">
-                            <p class="text-legend mt-1 d-none d-md-block">Last updated: {{formatDate last_updated}}</p>
+                            <p class="text-legend mt-1 d-none d-md-block">Last updated: <span class="timestamp d-none">{{last_updated}}</span></p>
                         </div>
                     </div>
                 </div>
