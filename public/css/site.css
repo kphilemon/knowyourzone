@@ -1,17 +1,16 @@
 :root {
-    --dark-5: #151724;
-    --dark-4: #171927;
-    --dark-3: #1C1E2F;
-    --dark-2: #222437;
-    --dark-1: #272A3F;
+    --dark-4: #040716;
+    --dark-3: #0a0d1b;
+    --dark-2: #101221;
+    --dark-1: #151826;
     --red: #FF4E71;
     --yellow: #FFFF5C;
     --green: #18E19B;
     --white-1: #E5E5E5;
     --white-2: #B3B3B3;
     --white-3: #8F8F8F;
-    --focus: #00DBDE;
-    --scrollbar: #525565;
+    --focus: #334D90;
+    --scrollbar: #1b1e2b;
     --primary-font: 'Rubik';
 }
 
@@ -285,7 +284,7 @@ nav {
 
 #search {
     color: var(--white-1);
-    background-color: var(--dark-5);
+    background-color: var(--dark-1);
     border-radius: 0;
     border: none;
     padding-left: 2.3rem;
@@ -296,7 +295,7 @@ nav {
 
 #search:focus, #search:hover {
     color: var(--white-1);
-    background-color: var(--dark-5);
+    background-color: var(--dark-1);
     box-shadow: 0 0 0.5rem 0.2rem var(--focus);
 }
 
@@ -316,7 +315,7 @@ nav {
 #search:-webkit-autofill:focus,
 #search:-webkit-autofill:active {
     font-family: var(--primary-font), sans-serif;
-    -webkit-box-shadow: 0 0 0 30px var(--dark-5) inset;
+    -webkit-box-shadow: 0 0 0 30px var(--dark-1) inset;
     -webkit-text-fill-color: var(--white-1);
     caret-color: var(--white-1);
 }
