@@ -7,11 +7,12 @@
     --red: #FF4E71;
     --yellow: #FFFF5C;
     --green: #18E19B;
-    --white-text: #E5E5E5;
-    --secondary-white-text: #B3B3B3;
+    --white-1: #E5E5E5;
+    --white-2: #B3B3B3;
+    --white-3: #8F8F8F;
     --focus: #00DBDE;
     --scrollbar: #525565;
-    --primary-font: 'Courier New';
+    --primary-font: 'Rubik';
 }
 
 html, body {
@@ -83,32 +84,36 @@ html, body {
 }
 
 .text-copyright {
-    color: var(--secondary-white-text);
-    font-size: 0.8em;
+    color: var(--white-2);
+    font-size: 0.85em;
     overflow-wrap: break-word;
     word-wrap: break-word;
     margin-bottom: 0;
 }
 
 .text-copyright a {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
+}
+
+.text-copyright a:hover {
+    color: var(--white-3);
 }
 
 .text-last-updated {
-    color: var(--secondary-white-text);
-    font-size: 0.9em;
+    color: var(--white-2);
     margin-bottom: 0;
 }
 
 .text-legend {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
     font-size: 0.9em;
     margin-bottom: 0;
 }
 
 body {
     background-color: var(--dark-4);
-    font-family: var(--primary-font), monospace;
+    font-family: var(--primary-font), sans-serif;
+    letter-spacing: 1px;
 }
 
 a {
@@ -172,14 +177,6 @@ nav {
     body::-webkit-scrollbar {
         display: none;
     }
-
-    .text-legend {
-        font-size: 0.8em;
-    }
-}
-
-#search {
-    flex-shrink: 0;
 }
 
 #scrollable-list {
@@ -206,11 +203,9 @@ nav {
 .list-item {
     background-color: var(--dark-2);
     padding: 0.5rem 0.75rem;
-    font-size: 1rem;
-    line-height: 1.5;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    color: white;
+    color: var(--white-1);
     cursor: pointer;
     border-bottom: 0.25px solid var(--dark-3);;
 }
@@ -218,17 +213,17 @@ nav {
 .list-inner-item {
     background-color: var(--dark-1);
     padding: 0.55rem 1rem;
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    color: var(--white-text);
+    color: var(--white-1);
     border-bottom: 0.25px solid var(--dark-2);;
 }
 
 .list-item:before {
     float: right !important;
-    font-family: var(--primary-font), monospace;
+    font-family: monospace;
+    font-size: 1.2em;
     content: "+";
 }
 
@@ -243,13 +238,13 @@ nav {
     line-height: 1.5;
     overflow-wrap: break-word;
     word-wrap: break-word;
-    color: white;
+    color: var(--white-1);
     border-bottom: 0.25px solid var(--dark-3);;
 }
 
 #text-no-results {
     font-size: 0.9rem;
-    color: var(--secondary-white-text);
+    color: var(--white-2);
     text-align: center;
     padding: 1rem 1rem;
 }
@@ -289,17 +284,18 @@ nav {
 }
 
 #search {
-    color: var(--white-text);
+    color: var(--white-1);
     background-color: var(--dark-5);
     border-radius: 0;
     border: none;
     padding-left: 2.3rem;
+    letter-spacing: 1px;
     transition: box-shadow 0.15s ease-in-out;
-    font-size: 0.9em;
+    flex-shrink: 0;
 }
 
 #search:focus, #search:hover {
-    color: var(--white-text);
+    color: var(--white-1);
     background-color: var(--dark-5);
     box-shadow: 0 0 0.5rem 0.2rem var(--focus);
 }
@@ -319,34 +315,34 @@ nav {
 #search:-webkit-autofill:hover,
 #search:-webkit-autofill:focus,
 #search:-webkit-autofill:active {
-    font-family: var(--primary-font), monospace;
+    font-family: var(--primary-font), sans-serif;
     -webkit-box-shadow: 0 0 0 30px var(--dark-5) inset;
-    -webkit-text-fill-color: var(--white-text);
-    caret-color: var(--white-text);
+    -webkit-text-fill-color: var(--white-1);
+    caret-color: var(--white-1);
 }
 
 #search::-webkit-input-placeholder {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
 }
 
 #search::-moz-placeholder {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
 }
 
 #search:-ms-input-placeholder {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
 }
 
 #search::-ms-input-placeholder {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
 }
 
 #search::placeholder {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
 }
 
 #search + .bi-search {
-    color: var(--secondary-white-text);
+    color: var(--white-2);
     position: absolute;
     left: 0.75rem;
     top: 0;
@@ -357,10 +353,11 @@ nav {
 
 .btn-circle {
     color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 20px;
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
     text-align: center;
+    font-family: monospace;
     background-color: var(--dark-1);
 }
 
@@ -465,7 +462,7 @@ path[data-name][data-total]:hover {
 }
 
 .pop-up {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.5rem;
     font-size: 0.9rem;
     line-height: 1.5;
     text-align: center;

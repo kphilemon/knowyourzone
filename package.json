@@ -1,7 +1,7 @@
 {
   "name": "knowyourzone",
   "version": "1.0.0",
-  "description": "Visualize COVID-19 zone colors of each district in Malaysia. JSON data API available. Data updated daily.",
+  "description": "Visualize COVID-19 zone colors of each state and district in Malaysia. JSON data API available. Data updated daily.",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

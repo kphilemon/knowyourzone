@@ -7,7 +7,6 @@ const minify = require('html-minifier').minify;
 Handlebars.registerHelper('color', getColor);
 Handlebars.registerHelper('extract_data_by_state_id', extractDataByStateId);
 
-
 const publicDir = path.join(__dirname, '../public');
 const templatesDir = path.join(__dirname, '../templates');
 const statesNameMapping = {
@@ -29,7 +28,6 @@ const statesNameMapping = {
     PJY: ['putrajaya']
 };
 
-
 // render static index.html and minify it
 async function renderIndex(data) {
     try {
@@ -49,11 +47,9 @@ async function renderIndex(data) {
     }
 }
 
-
 function getColor(total) {
     return (total > 40) ? 'red' : (total > 0) ? 'yellow' : (total === 0) ? 'green' : '';
 }
-
 
 function extractDataByStateId(allStates, stateId) {
     const index = allStates.findIndex(e => {
