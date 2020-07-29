@@ -1,10 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Not found</title>
+    <title>Page not found · Know Your Zone</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+    <!-- Charset -->
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Theme colors -->
+    <meta name="theme-color" content="#272A3F">
+    <meta name="msapplication-navbutton-color" content="#272A3F">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- SEO -->
+    <meta name="title" content="Know Your Zone (COVID-19)">
+    <meta name="description" content="Visualize COVID-19 zone colors of each state and district in Malaysia.">
+    <meta name="keywords" content="Malaysia, covid-19, district, states, zones, red, yellow, green, cases, tracker">
+    <meta name="author" content="Khor Philemon (kphilemon)">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="canonical" href="https://knowyourzone.xyz/">
+
+    <!-- Facebook -->
+    <meta property="og:url" content="https://knowyourzone.xyz/">
+    <meta property="og:locale" content="en">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Know Your Zone">
+    <meta property="og:title" content="Know Your Zone (COVID-19)">
+    <meta property="og:description" content="Visualize COVID-19 zone colors of each states and districts in Malaysia.">
+    <meta property="og:image" content="https://knowyourzone.xyz/img/og-image.jpg">
+
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            color: white;
+            overflow: hidden;
+            background-color: #171927;
+            font-family: 'Rubik', sans-serif;
+        }
+
+        .wrapper {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .wrapper h1.glitch {
+            font-family: sans-serif;
+            font-weight: 800;
+            position: relative;
+            font-size: 100px;
+            padding: 30px;
+        }
+
+        .wrapper h1.glitch::before, .wrapper h1.glitch::after {
+            padding: 30px;
+            color: white;
+            content: "404";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #171927;
+            overflow: hidden;
+            top: 0;
+        }
+
+        .wrapper h1.glitch::before {
+            left: 3px;
+            text-shadow: -2px 0 red;
+            animation-name: glitch-animation-1;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+
+        .wrapper h1.glitch::after {
+            left: -3px;
+            text-shadow: -2px 0 blue;
+            animation-name: glitch-animation-2;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+
+        p {
+            padding-left: 15px;
+            padding-right: 15px;
+            letter-spacing: 0.5px;
+            text-align: center;
+            margin: 0;
+        }
+
+        a {
+            color: white;
+        }
+
+        a:hover {
+            color: #B3B3B3;
+        }
+
+        .p1 {
+            padding-bottom: 10px;
+        }
+
+        .p2 {
+            padding-bottom: 40px;
+        }
+
+        @keyframes glitch-animation-1 {
+            0% {
+                clip: rect(148px, 350px, 65px, 30px);
+            }
+            5% {
+                clip: rect(109px, 350px, 115px, 30px);
+            }
+            10% {
+                clip: rect(61px, 350px, 142px, 30px);
+            }
+            15% {
+                clip: rect(34px, 350px, 97px, 30px);
+            }
+            20% {
+                clip: rect(74px, 350px, 9px, 30px);
+            }
+            25% {
+                clip: rect(125px, 350px, 39px, 30px);
+            }
+            30% {
+                clip: rect(56px, 350px, 130px, 30px);
+            }
+            35% {
+                clip: rect(118px, 350px, 97px, 30px);
+            }
+            40% {
+                clip: rect(10px, 350px, 18px, 30px);
+            }
+            45% {
+                clip: rect(60px, 350px, 124px, 30px);
+            }
+            50% {
+                clip: rect(83px, 350px, 9px, 30px);
+            }
+            55% {
+                clip: rect(89px, 350px, 146px, 30px);
+            }
+            60% {
+                clip: rect(120px, 350px, 116px, 30px);
+            }
+            65% {
+                clip: rect(59px, 350px, 22px, 30px);
+            }
+            70% {
+                clip: rect(147px, 350px, 95px, 30px);
+            }
+            75% {
+                clip: rect(149px, 350px, 128px, 30px);
+            }
+            80% {
+                clip: rect(63px, 350px, 9px, 30px);
+            }
+            85% {
+                clip: rect(148px, 350px, 48px, 30px);
+            }
+            90% {
+                clip: rect(78px, 350px, 50px, 30px);
+            }
+            95% {
+                clip: rect(60px, 350px, 5px, 30px);
+            }
+            100% {
+                clip: rect(61px, 350px, 70px, 30px);
+            }
+        }
+
+        @keyframes glitch-animation-2 {
+            0% {
+                clip: rect(18px, 350px, 3px, 30px);
+            }
+            5% {
+                clip: rect(147px, 350px, 20px, 30px);
+            }
+            10% {
+                clip: rect(45px, 350px, 26px, 30px);
+            }
+            15% {
+                clip: rect(87px, 350px, 118px, 30px);
+            }
+            20% {
+                clip: rect(50px, 350px, 139px, 30px);
+            }
+            25% {
+                clip: rect(79px, 350px, 108px, 30px);
+            }
+            30% {
+                clip: rect(56px, 350px, 93px, 30px);
+            }
+            35% {
+                clip: rect(13px, 350px, 143px, 30px);
+            }
+            40% {
+                clip: rect(137px, 350px, 34px, 30px);
+            }
+            45% {
+                clip: rect(120px, 350px, 2px, 30px);
+            }
+            50% {
+                clip: rect(41px, 350px, 1px, 30px);
+            }
+            55% {
+                clip: rect(43px, 350px, 44px, 30px);
+            }
+            60% {
+                clip: rect(37px, 350px, 28px, 30px);
+            }
+            65% {
+                clip: rect(112px, 350px, 106px, 30px);
+            }
+            70% {
+                clip: rect(81px, 350px, 96px, 30px);
+            }
+            75% {
+                clip: rect(149px, 350px, 95px, 30px);
+            }
+            80% {
+                clip: rect(26px, 350px, 111px, 30px);
+            }
+            85% {
+                clip: rect(114px, 350px, 9px, 30px);
+            }
+            90% {
+                clip: rect(65px, 350px, 62px, 30px);
+            }
+            95% {
+                clip: rect(3px, 350px, 130px, 30px);
+            }
+            100% {
+                clip: rect(61px, 350px, 36px, 30px);
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Not found</h1>
+    <div class="wrapper">
+        <h1 class="glitch">404</h1>
+        <p class="p1">It seems like you have landed in the unknown zone of 404.</p>
+        <p class="p2">Take me back to <a href="/">knowyourzone.xyz</a>.</p>
+    </div>
 </body>
 </html>
