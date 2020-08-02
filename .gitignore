@@ -6,4 +6,6 @@ npm-debug.log
 .DS_Store
 logs
 public/robots.txt
+
+# ignoring index.html in public folder because it will be regenerated upon new data
 public/index.html

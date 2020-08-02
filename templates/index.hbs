@@ -1,33 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Know Your Zone (COVID-19)</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="shortcut icon" href="/img/favicon.ico">
-
     <!-- Charset -->
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta charset="utf-8">
 
     <!-- Viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Theme colors -->
+    <title>Know Your Zone (COVID-19)</title>
+
+    <link rel="icon" type="image/png" sizes="192x192" href="/img/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <!-- Android chrome & PWA config -->
     <meta name="theme-color" content="#272A3F">
+    <link rel="manifest" href="/site.webmanifest">
+
+    <!-- Windows tile -->
+    <meta name="msapplication-TileColor" content="#272A3F">
+    <meta name="msapplication-TileImage" content="/img/mstile-150x150.png">
+    <meta name="msapplication-config" content="/browserconfig.xml">
     <meta name="msapplication-navbutton-color" content="#272A3F">
+
+    <!-- IOS -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Know Your Zone">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
 
     <!-- SEO -->
+    <meta name="robots" content="index, follow">
     <meta name="title" content="Know Your Zone (COVID-19)">
     <meta name="description" content="Visualize COVID-19 zone colors of each state and district in Malaysia.">
     <meta name="keywords" content="Malaysia, covid-19, district, states, zones, red, yellow, green, cases, tracker">
     <meta name="author" content="Khor Philemon (kphilemon)">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://knowyourzone.xyz/">
 
     <!-- Facebook -->
@@ -38,7 +49,8 @@
     <meta property="og:title" content="Know Your Zone (COVID-19)">
     <meta property="og:description" content="Visualize COVID-19 zone colors of each states and districts in Malaysia.">
     <meta property="og:image" content="https://knowyourzone.xyz/img/og-image.jpg">
-    <!-- Bootstrap CSS -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
           integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="css/site.css">
@@ -47,11 +59,11 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark px-4 px-md-5">
 
-        <h1 class="navbar-brand my-0">K<span class="d-none d-md-inline">now</span>Y<span
+        <h1 class="navbar-brand m-0">K<span class="d-none d-md-inline">now</span>Y<span
                 class="d-none d-md-inline">our</span>Z<span class="d-none d-md-inline">one</span></h1>
 
         <div class="dropdown mx-auto mx-md-0 ml-md-auto">
-            <a class="dropdown-toggle" href="#" id="navbar-dropdown" data-toggle="dropdown"
+            <a class="dropdown-toggle py-md-2 px-md-3" href="#" id="navbar-dropdown" data-toggle="dropdown"
                aria-haspopup="true" aria-expanded="false">COVID-19
                 <svg width="0.7em" height="0.7em" viewBox="0 0 16 16" class="bi bi-chevron-down mb-1 ml-1"
                      fill="currentColor"
@@ -68,6 +80,14 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-links">
             <span class="navbar-toggler-icon"></span>
         </button>
+
+        <div class="collapse navbar-collapse" id="nav-links">
+            <div class="navbar-nav">
+                <a class="nav-link px-md-3" href="#">About</a>
+                <a class="nav-link px-md-3" href="#">API</a>
+                <a class="nav-link px-md-3" href="#">Github</a>
+            </div>
+        </div>
     </nav>
 
     <main class="container-fluid">
@@ -109,7 +129,7 @@
                             {{/each}}
                             <div id="text-no-results">No matching districts/states found.<br><br>No idea which district
                                 you are in? Check it out
-                                <a href="https://www.citypopulation.de/en/malaysia/admin/" target="_blank">here</a></div>
+                                <a href="https://www.citypopulation.de/en/malaysia/admin/" target="_blank" rel="noopener">here</a></div>
                         </div>
                     </div>
                 </div>
@@ -161,7 +181,7 @@
                 <div class="absolute-bottom-left m-2 d-none d-md-block">
                     <p class="text-copyright">&#169; 2020 KnowYourZone. All rights
                         reserved.<br>Data source:
-                        <a href="https://newslab.malaysiakini.com/covid-19" target="_blank">https://newslab.malaysiakini.com/covid-19</a>
+                        <a href="https://newslab.malaysiakini.com/covid-19" target="_blank" rel="noopener">https://newslab.malaysiakini.com/covid-19</a>
                     </p>
                 </div>
 
@@ -186,14 +206,14 @@
                 </div>
 
                 <div class="absolute-bottom-right m-4 m-md-2 pr-md-3">
-                    <button type="button" class="btn btn-circle d-block mb-2" id="zoom-out">-</button>
-                    <button type="button" class="btn btn-circle d-block" id="zoom-in">+</button>
+                    <button type="button" class="btn btn-circle d-block mb-2" id="zoom-out" aria-label="zoom-out">–</button>
+                    <button type="button" class="btn btn-circle d-block" id="zoom-in" aria-label="zoom-in">+</button>
                 </div>
             </div>
 
             <div class="col order-3 d-md-none mt-4 mb-3">
                 <p class="text-copyright text-center">&#169; 2020 KnowYourZone. All rights reserved.<br>Data source:
-                    <a href="https://newslab.malaysiakini.com/covid-19" target="_blank">https://newslab.malaysiakini.com/covid-19</a>
+                    <a href="https://newslab.malaysiakini.com/covid-19" target="_blank" rel="noopener">https://newslab.malaysiakini.com/covid-19</a>
                 </p>
             </div>
         </div>

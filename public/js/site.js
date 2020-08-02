@@ -83,9 +83,9 @@ const mobilePanZoomEventHandler = {
             // On pinch start remember initial zoom
             if (ev.type === 'pinchstart') {
                 initialScale = instance.getZoom();
-                instance.zoomAtPoint(initialScale * ev.scale, {x: ev.center.x, y: ev.center.y});
+                instance.zoomAtPoint(initialScale * ev.scale, {x: ev.center.x, y: ev.center.y}, false);
             }
-            instance.zoomAtPoint(initialScale * ev.scale, {x: ev.center.x, y: ev.center.y});
+            instance.zoomAtPoint(initialScale * ev.scale, {x: ev.center.x, y: ev.center.y}, false);
         })
     },
     destroy: function () {
@@ -174,3 +174,9 @@ tippy('path[data-name][data-total]', {
 $('#map').click(function () {
     searchInput.blur();
 });
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js');
+    });
+}
