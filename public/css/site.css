@@ -96,7 +96,9 @@ a {
     padding: 0;
 }
 
-.navbar .dropdown-toggle, .navbar-dark .navbar-nav .nav-link {
+.navbar .dropdown-toggle, .navbar-dark .navbar-nav .nav-link,
+.navbar .dropdown-toggle:focus, .navbar-dark .navbar-nav .nav-link:focus,
+.navbar .dropdown-toggle.focus, .navbar-dark .navbar-nav .nav-link.focus{
     color: white;
 }
 
