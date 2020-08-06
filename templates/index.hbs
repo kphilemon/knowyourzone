@@ -72,7 +72,7 @@
                 </svg>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
-                <a class="dropdown-item" href="#">Dengue</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#modal-3">Dengue</a>
             </div>
         </div>
 
@@ -82,12 +82,201 @@
 
         <div class="collapse navbar-collapse" id="nav-links">
             <div class="navbar-nav">
-                <a class="nav-link px-md-3" href="#">About</a>
-                <a class="nav-link px-md-3" href="#">API</a>
-                <a class="nav-link pl-md-3" href="https://github.com/kphilemon/knowyourzone" target="_blank" rel="noopener">Github</a>
+                <a class="nav-link px-md-3" href="#" data-toggle="modal" data-target="#modal-1">About</a>
+                <a class="nav-link px-md-3" href="#" data-toggle="modal" data-target="#modal-2">API</a>
+                <a class="nav-link pl-md-3" href="https://github.com/kphilemon/knowyourzone" target="_blank"
+                   rel="noopener">Github</a>
             </div>
         </div>
     </nav>
+
+    <div class="modal fade" id="modal-1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">About</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-3">
+                    <ul class="nav nav-tabs nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#project" role="tab">Project</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#developer" role="tab">Developer</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#data-colors" role="tab">Data & Colours</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content pt-4">
+                        <div class="tab-pane fade show active" id="project">
+                            <p>With simplicity in mind, KnowYourZone is designed to do one thing well:</p>
+                            <p class="my-4 text-quote">To let you know what “zone” you are currently in, without the
+                                clutters of figures and graphs that you might not even care about.</p>
+                            <p>Stats and facts about the COVID-19 pandemic could be overwhelming. KnowYourZone focuses
+                                on presenting the <i>zone classification</i> of your area in an intuitive and
+                                interactive manner.</p>
+                            <p>This current version displays only the data for the COVID-19 outbreak in Malaysia. Shall
+                                there be reliable data available, it will support other information, such as the dengue
+                                outbreak, which is not less serious than the COVID-19 pandemic.</p>
+                        </div>
+                        <div class="tab-pane fade" id="developer">
+                            <p>Hi, I'm Philemon, the creator of KnowYourZone. I'm a full-stack web & mobile app
+                                developer based in Malaysia.</p>
+                            <p>If you wish to collaborate or have a chat with me, feel free to reach out to me at
+                                <a href="mailto:knowyourzone.xyz@gmail.com?subject=Hello, Philemon.">knowyourzone.xyz@gmail.com</a>.
+                            </p>
+                            <p>Let's get connected on
+                                <a href="https://github.com/kphilemon" target="_blank" rel="noopener">Github</a> and
+                                <a href="https://www.linkedin.com/in/philemon-khor/" target="_blank" rel="noopener">LinkedIn</a>
+                                too!</p>
+                        </div>
+                        <div class="tab-pane fade" id="data-colors">
+                            <p class="text-heading">Data Source</p>
+                            <p>The data displayed on this website is retrieved from the awesome
+                                <a href="https://newslab.malaysiakini.com/covid-19" target="_blank" rel="noopener">Malaysiakini
+                                    COVID-19 Tracker</a>.</p>
+                            <p class="text-heading mt-4">Data Integrity and Validity</p>
+                            <p>The data is updated twice daily (10AM and 10PM) and is validated upon retrieval.</p>
+                            <p class="text-heading mt-4">Zone Classification</p>
+                            <p>The Ministry of Health (Malaysia) has come up with a COVID-19 zoning system that reflects
+                                the severity based on the number of active cases in each district. The zoning system was
+                                previously divided into 4 zones (red, orange, yellow and green). The latest system is
+                                divided into 3 zones only, namely red, yellow and green.</p>
+                            <p class="text-heading mt-4">Why only Malaysia?</p>
+                            <p>Each country has their own zoning system and probably more districts than Malaysia. The
+                                developer is incapable of studying and validating all the data, unfortunately.</p>
+                            <p class="text-heading mt-4">Disclaimer</p>
+                            <p>knowyourzone.xyz is not affiliated, associated, maintained by, or
+                                in any way officially connected with malaysiakini.com.</p>
+                        </div>
+                        <p class="text-version">v1.0.0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">JSON Data API</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Wish to access data on this website through API? Say no more fam, here's a free API for you to
+                        build your own application!</p>
+                    <p class="text-heading mt-4">Get All Data (COVID-19)</p>
+                    <pre class="border-left-green">GET https://knowyourzone.xyz/api/data/covid19/latest</pre>
+                    <p class="text-sub">Example request:</p>
+                    <pre>curl -i -X GET https://knowyourzone.xyz/api/data/covid19/latest</pre>
+                    <p class="text-sub">Example response:</p>
+                    <pre>{
+  "states": [
+    {
+      "name": "Sarawak",
+      "total": 12,
+      "districts": [
+        {
+          "name": "District with most active cases in Sarawak",
+          "total": 8
+        },
+        {
+          "name": "District with second most active cases",
+          "total": 4
+        },
+        ...
+      ]
+    },
+    {
+      "name": "Kuala Lumpur",
+      "total": 4,
+      "districts": [
+        {
+          "name": "District with most active cases in Kuala Lumpur",
+          "total": 4
+        },
+        {
+          "name": "This district has no active cases",
+          "total": 0
+        },
+        ...
+      ]
+    },
+    ...
+  ],
+  "last_updated": 1594785600
+}</pre>
+                    <p class="text-sub">A response contains two fields:</p>
+                    <ul>
+                        <li><code>states</code>: An array of <code>state</code> objects. A normal response will have 16
+                            state objects (<a
+                                    href="https://en.wikipedia.org/wiki/States_and_federal_territories_of_Malaysia#States_and_federal_territories"
+                                    target="_blank" rel="noopener">13 states + 3 federal territories</a>) in its states
+                            field. In events of missing data, a response may have fewer state objects.
+                        </li>
+                        <li><code>last_updated</code>: The time at which the data is updated in UTC epoch seconds.</li>
+                    </ul>
+
+                    <p class="text-sub">A state object contains three fields:</p>
+                    <ul>
+                        <li><code>name</code>: The name of the state or federal territory.</li>
+                        <li><code>total</code>: An integer indicating the number of <i>total active cases</i> in that
+                            particular state. It is the sum of active cases in all districts, excluding import cases.
+                        </li>
+                        <li><code>districts</code>: An object with name and total field.</li>
+                    </ul>
+
+                    <p class="text-heading mt-4">Rate Limiting</p>
+                    <p class="text-sub">All API requests are rate limited and are associated with the originating IP
+                        address. Each IP address can make up to 100 requests in 15 minutes.</p>
+                    <pre>HTTP/1.1 200 OK
+Date: Thu, 06 Aug 2020 07:51:15 GMT
+X-RateLimit-Limit: 100
+X-RateLimit-Remaining: 99
+X-RateLimit-Reset: 1596700549
+...</pre>
+                    <p class="text-sub">The returned HTTP headers show your current rate limit status:</p>
+                    <ul>
+                        <li><code>X-RateLimit-Limit</code>: The maximum number of requests you're permitted to make per
+                            15 minutes.
+                        </li>
+                        <li><code>X-RateLimit-Remaining</code>: The number of requests remaining in the current rate
+                            limit window.
+                        </li>
+                        <li><code>X-RateLimit-Reset</code>: The time at which the current rate limit window resets in
+                            UTC epoch seconds.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modal-3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Data unavailable at the moment</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>The developer is still actively searching for reliable data on the dengue outbreak in
+                        Malaysia. Stay tuned for updates!<br><br>If you wish to contribute on this, drop an email at
+                        <a href="mailto:knowyourzone.xyz@gmail.com?subject=Collaboration on KnowYourZone Dengue Outbreak Data Source">knowyourzone.xyz@gmail.com</a>
+                        :)</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <main class="container-fluid">
         <div class="row pb-3 px-md-3 ">
@@ -134,8 +323,8 @@
                 </div>
             </div>
 
-            <div class="col-md-right order-1 order-md-2 pl-md-0" id="map-col">
-                <svg id="map" class="h-100 w-100 pb-3 pb-md-0" viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg">
+            <div class="col-md-right order-1 order-md-2 pb-3 pb-md-0 pl-md-0" id="map-col">
+                <svg id="map" class="h-100 w-100" viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg">
                     <g fill="#272A3F" stroke-width="0.5" stroke="#171927" stroke-linecap="round"
                        stroke-linejoin="round">
                         {{#with states}}                            
@@ -186,7 +375,7 @@
                     </p>
                 </div>
 
-                <div class="absolute-bottom-left absolute-md-top-left m-4 m-md-2">
+                <div class="absolute-bottom-left absolute-md-top-left pb-4 px-4 p-md-2">
                     <div class="row pr-5">
                         <div class="col-12 col-md-auto d-flex align-items-center mb-1 mb-md-0">
                             <span class="indicator bg-green mr-3 mr-md-2"></span>

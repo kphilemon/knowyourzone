@@ -8,9 +8,11 @@
     --dark-4: #171927;
     --dark-5: #151724;
     --white-1: #E5E5E5;
-    --white-2: #B3B3B3;
-    --white-3: #8F8F8F;
-    --focus: #334D90;
+    --white-2: #D1D1D1;
+    --white-3: #B3B3B3;
+    --focus-1: #727CF5;
+    --focus-2: #5b63c4;
+    --focus-3: #334D90;
     --scrollbar: #525565;
     --navbar-height: 80px;
     --primary-font: 'Rubik';
@@ -24,6 +26,11 @@ body {
 
 a {
     text-decoration: none !important;
+    color: var(--focus-1);
+}
+
+a:hover {
+    color: var(--focus-2);
 }
 
 #map-col {
@@ -98,7 +105,7 @@ a {
 
 .navbar .dropdown-toggle, .navbar-dark .navbar-nav .nav-link,
 .navbar .dropdown-toggle:focus, .navbar-dark .navbar-nav .nav-link:focus,
-.navbar .dropdown-toggle.focus, .navbar-dark .navbar-nav .nav-link.focus{
+.navbar .dropdown-toggle.focus, .navbar-dark .navbar-nav .nav-link.focus {
     color: white;
 }
 
@@ -151,18 +158,27 @@ a {
     flex: 1;
 }
 
-#scrollable-list::-webkit-scrollbar, body::-webkit-scrollbar {
+*::-webkit-scrollbar, body::-webkit-scrollbar {
     width: 11px;
+    height: 11px;
 }
 
-#scrollable-list::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
+*::-webkit-scrollbar-track, body::-webkit-scrollbar-track {
     background: var(--dark-3);
 }
 
-#scrollable-list::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+*::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar);
     border-radius: 6px;
     border: 3px solid var(--dark-3);
+}
+
+*::-webkit-scrollbar-corner {
+    background-color: var(--dark-3);
+}
+
+pre::-webkit-scrollbar-thumb, body::-webkit-scrollbar-thumb {
+    border: 4px solid var(--dark-3);
 }
 
 .list-item {
@@ -217,7 +233,7 @@ a {
 #search:focus, #search:hover {
     color: var(--white-1);
     background-color: var(--dark-5);
-    box-shadow: 0 0 0.5rem 0.2rem var(--focus);
+    box-shadow: 0 0 0.5rem 0.2rem var(--focus-3);
 }
 
 #search::-webkit-search-cancel-button {
@@ -308,6 +324,52 @@ a {
     }
 }
 
+.text-quote {
+    padding-left: 1em;
+    font-style: italic;
+    border-left: 3px solid var(--green);
+}
+
+.text-version {
+    margin: 0;
+    font-size: 0.8rem;
+    font-style: italic;
+    text-align: right;
+    color: var(--white-3);
+}
+
+.text-heading {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
+
+.text-sub {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.modal pre {
+    font-size: 0.85em;
+    overflow: overlay;
+    color: var(--white-2);
+    padding: 0.9rem;
+    background-color: var(--dark-3);
+    max-height: 220px;
+}
+
+.modal code {
+    font-size: 0.8rem;
+    color: var(--white-2);
+    padding: 5px;
+    background-color: var(--dark-3);
+}
+
+.modal li {
+    font-size: 0.8rem;
+    padding-bottom: 0.3em;
+}
+
 .btn-circle {
     color: white;
     width: 42px;
@@ -330,7 +392,7 @@ a {
 }
 
 .btn-circle:not(:disabled):not(.disabled):hover {
-    box-shadow: 0 0 0.5rem 0.2rem var(--focus);
+    box-shadow: 0 0 0.5rem 0.2rem var(--focus-3);
 }
 
 .btn-circle:not(:disabled):not(.disabled):active, .btn-circle:not(:disabled):not(.disabled).active,
@@ -394,6 +456,70 @@ path[data-name][data-total]:hover {
     padding: 0.5rem 1.5rem;
     font-size: 0.9rem;
     text-align: center;
+}
+
+.modal-backdrop.show {
+    opacity: .3;
+}
+
+.modal-content {
+    border-radius: 0;
+    background-color: var(--dark-2);
+}
+
+.modal-header {
+    border: 0;
+    padding: 1.5em 1.7em 0 1.7em;
+    color: white;
+}
+
+.modal-body {
+    padding: 1.5em 1.7em;
+    color: var(--white-2);
+    font-size: 0.95em;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.modal-header .close {
+    font-weight: normal;
+    color: white;
+    opacity: .9;
+    text-shadow: none;
+}
+
+.modal-header .close:hover {
+    color: white;
+}
+
+.nav-tabs {
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    border-bottom: 0;
+}
+
+.nav-tabs::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-tabs .nav-link {
+    color: var(--white-2);
+    white-space: nowrap;
+    border: 0;
+    font-size: 1rem;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    color: var(--focus-1);
+    background-color: transparent;
+    border-bottom: 3px solid var(--focus-1);
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    color: var(--focus-1);
 }
 
 .fill-red {
