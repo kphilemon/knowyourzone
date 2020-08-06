@@ -27,6 +27,8 @@ async function scrape() {
             return;
         }
 
+        data.last_updated = Math.trunc(Date.now() / 1000);
+
         // render index.html and cache data if no errors
         await HTMLRenderer.renderIndex(data);
         cache.put('data', data);
@@ -86,8 +88,8 @@ function extractDataFromDOM(selector) {
     }
 
     // setting last updated timestamp in seconds (defaults back to now)
-    const time = target.parentElement.querySelector('p');
-    data.last_updated = Math.trunc((Date.parse(time && time.innerText) || Date.now()) / 1000);
+    // const time = target.parentElement.querySelector('p');
+    // data.last_updated = Math.trunc((Date.parse(time && time.innerText) || Date.now()) / 1000);
 
     return data;
 }
@@ -104,7 +106,7 @@ function notifyAdmin(message) {
         <pre>${JSON.stringify(message, null, 4)}</pre>`
     };
 
-    mailer.sendMail(mail, (err) => {
+    mailer.sendMail(mail, err => {
         if (err) logger.error(`Error sending email to admin: ${err}`);
     });
 }
