@@ -140,7 +140,7 @@
                                 <a href="https://newslab.malaysiakini.com/covid-19" target="_blank" rel="noopener">Malaysiakini
                                     COVID-19 Tracker</a>.</p>
                             <p class="text-heading mt-4">Data Integrity and Validity</p>
-                            <p>The data is updated twice daily (10AM and 10PM) and is validated upon retrieval.</p>
+                            <p>The data is updated twice daily (10AM and 10PM UTC+8) and is validated upon retrieval.</p>
                             <p class="text-heading mt-4">Zone Classification</p>
                             <p>The Ministry of Health (Malaysia) has come up with a COVID-19 zoning system that reflects
                                 the severity based on the number of active cases in each district. The zoning system was
@@ -280,7 +280,7 @@ X-RateLimit-Reset: 1596700549
 
     <main class="container-fluid">
         <div class="row pb-3 px-md-3 ">
-            <div class="col-md-left order-2 order-md-1" id="list-col">
+            <div class="order-2 order-md-1" id="col-list">
                 <div class="p-3" id="list-container">
                     <div class="position-relative">
                         <input autocomplete="off" type="search" class="form-control" id="search" placeholder="Search for districts/states">
@@ -317,13 +317,13 @@ X-RateLimit-Reset: 1596700549
                             {{/each}}
                             <div id="text-no-results">No matching districts/states found.<br><br>No idea which district
                                 you are in? Check it out at
-                                <a href="https://www.citypopulation.de/en/malaysia/admin/" target="_blank" rel="noopener">this website</a></div>
+                                <a href="https://www.citypopulation.de/en/malaysia/admin/" target="_blank" rel="noopener">this website</a>.</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-right order-1 order-md-2 pb-3 pb-md-0 pl-md-0" id="map-col">
+            <div class="order-1 order-md-2 pb-3 pb-md-0 pl-md-0" id="col-map">
                 <svg id="map" class="h-100 w-100" viewBox="0 0 640 600" xmlns="http://www.w3.org/2000/svg">
                     <g fill="#272A3F" stroke-width="0.5" stroke="#171927" stroke-linecap="round"
                        stroke-linejoin="round">
