@@ -1,7 +1,7 @@
 {
-    "name": "Know Your Zone",
-    "short_name": "Know Your Zone",
-    "description": "Visualize COVID-19 zone colors of each state and district in Malaysia.",
+    "name": "KnowYourZone",
+    "short_name": "KnowYourZone",
+    "description": "Visualize COVID-19 zone classification of each state and district in Malaysia based on up-to-date data.",
     "icons": [
         {
             "src": "/img/android-chrome-192x192.png",
