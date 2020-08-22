@@ -1,6 +1,6 @@
 const express = require('express');
-const cache = require('memory-cache');
 const router = express.Router();
+const cache = require('memory-cache');
 
 router.get(['/covid19', '/covid19/latest'], (req, res) => {
     const data = cache.get('data');
@@ -12,5 +12,6 @@ router.get(['/covid19', '/covid19/latest'], (req, res) => {
 });
 
 // TODO: Add state/district filtering
+
 
 module.exports = router;

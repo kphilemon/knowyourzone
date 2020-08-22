@@ -5,8 +5,8 @@ const helmet = require("helmet");
 const morgan = require('morgan');
 const express = require('express');
 const rateLimit = require("express-rate-limit");
-const scrape = require('./data-scraper');
 const logger = require('./utilities/logger');
+const updateData = require('./utilities/data-updater').update;
 
 
 const app = express();
@@ -29,7 +29,6 @@ const httpLogger = morgan('common', {
 // Enable if you're behind a reverse proxy (Heroku, Bluemix, AWS ELB, Nginx, etc)
 app.enable('trust proxy');
 
-
 // mount middlewares
 app.use(httpLogger);
 app.use(helmet());
@@ -40,14 +39,19 @@ app.use('/api/admin', require('./api/admin'));
 app.use('/api/*', (req, res) => res.status(404).json({message: 'Not found'}));
 app.use((req, res) => res.status(404).sendFile(path.join(publicDir, '404.html')));
 
+/* istanbul ignore if */
+if (require.main === module) {
+    // schedule a cron job to update the data periodically
+    cron.schedule(process.env.DATA_SCRAPE_CRON_SCHEDULE, updateData, {
+        scheduled: true,
+        timezone: 'Asia/Kuala_Lumpur'
+    });
 
-// schedule a cron job to scrape data at specified schedule
-cron.schedule(process.env.DATA_SCRAPE_CRON_SCHEDULE, scrape, {
-    scheduled: true,
-    timezone: 'Asia/Kuala_Lumpur'
-});
+    // update data before starting server to ensure data availability
+    updateData().then(() => {
+        app.listen(port, () => logger.info(`Server is listening on port ${port}`));
+    });
+}
 
 
-// scrape data before starting server to ensure data availability
-scrape();
-app.listen(port, () => logger.info(`Server is listening on port ${port}`));
+module.exports = app;

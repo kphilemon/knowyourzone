@@ -1,5 +1,6 @@
 const {createLogger, format, transports} = require('winston');
 
+/* istanbul ignore next */
 const options = {
     allLogs: {
         level: 'info',
