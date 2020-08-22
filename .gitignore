@@ -7,6 +7,8 @@ npm-debug.log
 logs
 public/robots.txt
 .nyc_output
+coverage
+*.lcov
 
 # ignoring index.html in public folder because it will be regenerated upon new data
 public/index.html
