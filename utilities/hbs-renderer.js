@@ -26,6 +26,9 @@ async function renderIndex(data) {
     const template = 'templates/index.hbs';
     const destination = 'public/index.html';
 
+    // add google analytics tracking ID
+    data.tracking_id = process.env.GA_TRACKING_ID;
+
     await renderHtml(data, template, destination).catch(error => {
         throw new Error(`Error rendering index.html: ${error.message}`);
     });

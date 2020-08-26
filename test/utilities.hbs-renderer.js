@@ -9,8 +9,7 @@ const {renderHtml, renderIndex} = require('../utilities/hbs-renderer');
 chai.use(chaiAsPromised);
 
 describe('Handlebars HTML Rendering Functions', () => {
-    const mockTemplate = "{{#each states}}{{name}} ({{total}}) - {{color total}}\n{{#each districts}} + {{name}} ({{total}}) - {{color total}}\n{{/each}}{{/each}}\n\n{{#with states}}{{extract_state_by_id 'SBH'}}{{/with}}";
-    const mockRenderedHtml = 'Sabah (42) - red + district A (40) - yellow + district B (2) - yellow Sarawak (0) - green + district A (0) - green class="fill-red" data-target="#item-0" data-total="42"';
+    const mockTemplate = "{{#each states}}{{name}} ({{total}}) - {{color total}}\n{{#each districts}} + {{name}} ({{total}}) - {{color total}}\n{{/each}}{{/each}}\n\n{{#with states}}{{extract_state_by_id 'SBH'}}{{/with}}\n\n{{tracking_id}}";
     const mockData = {
         states: [{
             name: 'Sabah',
@@ -24,6 +23,7 @@ describe('Handlebars HTML Rendering Functions', () => {
     };
 
     describe('renderHtml()', () => {
+        const mockRenderedHtml = 'Sabah (42) - red + district A (40) - yellow + district B (2) - yellow Sarawak (0) - green + district A (0) - green class="fill-red" data-target="#item-0" data-total="42"';
         const mockTemplatePath = 'foo/test.hbs';
         const mockDestinationPath = 'bar/test.html';
         afterEach(mockfs.restore);
@@ -60,6 +60,8 @@ describe('Handlebars HTML Rendering Functions', () => {
     });
 
     describe('renderIndex()', () => {
+        const mockRenderedHtml = 'Sabah (42) - red + district A (40) - yellow + district B (2) - yellow Sarawak (0) - green + district A (0) - green class="fill-red" data-target="#item-0" data-total="42" fake tracking id';
+        process.env.GA_TRACKING_ID = 'fake tracking id';
         afterEach(mockfs.restore);
 
         it("should render html based on template at 'template/index.hbs' and output rendered html at 'public/index.html'", async () => {
