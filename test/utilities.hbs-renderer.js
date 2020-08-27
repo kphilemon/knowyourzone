@@ -75,6 +75,7 @@ describe('Handlebars HTML Rendering Functions', () => {
             // read back from the file to verify its content
             const result = await fs.readFile('public/index.html', 'utf8');
             expect(result).to.deep.equal(mockRenderedHtml);
+            expect(mockData).to.not.have.property('tracking_id');
         });
 
         it("should throw error when 'index.hbs' does not exist in 'templates' directory", async () => {
@@ -84,6 +85,7 @@ describe('Handlebars HTML Rendering Functions', () => {
             });
 
             await expect(renderIndex(mockData)).to.be.rejectedWith(Error, /^Error rendering index.html: ENOENT, no such file or directory .*templates[\/\\]index.hbs/i);
+            expect(mockData).to.not.have.property('tracking_id');
         });
 
         it("should throw error when 'public' directory does not exist", async () => {
@@ -92,6 +94,7 @@ describe('Handlebars HTML Rendering Functions', () => {
             });
 
             await expect(renderIndex(mockData)).to.be.rejectedWith(Error, /^Error rendering index.html: ENOENT, no such file or directory .*public[\/\\]index.html/i);
+            expect(mockData).to.not.have.property('tracking_id');
         });
     });
 });

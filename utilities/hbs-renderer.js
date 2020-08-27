@@ -29,9 +29,13 @@ async function renderIndex(data) {
     // add google analytics tracking ID
     data.tracking_id = process.env.GA_TRACKING_ID;
 
-    await renderHtml(data, template, destination).catch(error => {
+    try {
+        await renderHtml(data, template, destination);
+    } catch (error) {
         throw new Error(`Error rendering index.html: ${error.message}`);
-    });
+    } finally {
+        delete data.tracking_id; // prevent caching the tracking ID
+    }
 }
 
 
