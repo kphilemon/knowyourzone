@@ -62,7 +62,7 @@ function DOMScript(selector) {
     }
 
     if (data.states.length === 0) {
-        data.error = 'Error scraping data: No data scrapped from the list elements';
+        data.error = 'Error scraping data: No data scraped from the list elements';
         return data;
     }
 

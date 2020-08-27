@@ -2,12 +2,12 @@ const cache = require('memory-cache');
 const logger = require('./logger');
 const mailer = require('./mailer');
 const hbsRenderer = require('./hbs-renderer');
-const dataScrapper = require('./data-scraper');
+const dataScraper = require('./data-scraper');
 
 async function update() {
     logger.info('Data update started');
 
-    const data = await dataScrapper.scrape();
+    const data = await dataScraper.scrape();
     if (data.error) {
         await mailer.notifyAdmin(data);
         logger.error(data.error);

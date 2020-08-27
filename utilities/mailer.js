@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-// notify admin on scrapped data via email
+// notify admin on scraped data via email
 async function notifyAdmin(data) {
     if (process.env.ADMIN_NOTIFICATION_ENABLED !== 'true') return;
 

@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const puppeteer = require('puppeteer');
 const {scrape} = require('../utilities/data-scraper');
 
-describe('Data Scrapper Functions', () => {
+describe('Data Scraper Functions', () => {
     describe('scrape() *takes time*', () => {
 
         it('should return an object with `states` or/and `error` property', async () => {
