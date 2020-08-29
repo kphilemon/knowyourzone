@@ -99,7 +99,7 @@ describe('App Integration Test', () => {
     });
 
     describe('PUT /api/admin/covid19', () => {
-        process.env.ADMIN_AUTH_TOKEN = 'foo';
+        process.env.ADMIN_API_KEY = 'foo';
         const fakeOldCacheData = 'fake old cache data';
 
         beforeEach(() => {
@@ -120,7 +120,7 @@ describe('App Integration Test', () => {
 
             chai.request(app)
                 .put('/api/admin/covid19')
-                .set('Authorization', 'foo')
+                .set('X-API-KEY', 'foo')
                 .send(mockData)
                 .end((err, res) => {
                     expect(err).to.be.null;
@@ -150,7 +150,7 @@ describe('App Integration Test', () => {
 
             chai.request(app)
                 .put('/api/admin/covid19')
-                .set('Authorization', 'a wrong token')
+                .set('X-API-KEY', 'a wrong API key')
                 .send(mockData)
                 .end((err, res) => {
                     expect(err).to.be.null;
@@ -179,7 +179,7 @@ describe('App Integration Test', () => {
 
             chai.request(app)
                 .put('/api/admin/covid19')
-                .set('Authorization', 'foo')
+                .set('X-API-KEY', 'foo')
                 .send(mockData)
                 .end((err, res) => {
                     expect(err).to.be.null;
@@ -206,7 +206,7 @@ describe('App Integration Test', () => {
 
             chai.request(app)
                 .put('/api/admin/covid19')
-                .set('Authorization', 'foo')
+                .set('X-API-KEY', 'foo')
                 .send(mockData)
                 .end((err, res) => {
                     expect(err).to.be.null;

@@ -7,8 +7,9 @@ const hbsRenderer = require('../utilities/hbs-renderer');
 
 router.use(express.json());
 router.use((req, res, next) => {
-    if (req.headers.authorization !== process.env.ADMIN_AUTH_TOKEN) {
-        logger.warn(`Someone's trying to be funny: ${req.headers.authorization}, ip: ${req.connection.remoteAddress}`)
+    const apiKey = req.get('X-API-KEY');
+    if (apiKey !== process.env.ADMIN_API_KEY) {
+        logger.warn(`Someone's trying to be funny: ${apiKey}, ip: ${req.connection.remoteAddress}`)
         return res.status(401).send({message: 'Unauthorized action'});
     }
     next();
