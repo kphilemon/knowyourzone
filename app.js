@@ -16,7 +16,7 @@ const publicDir = path.join(__dirname, 'public');
 const apiLimiter = rateLimit({
     windowMs: parseInt(process.env.API_RATELIMIT_WINDOW),
     max: parseInt(process.env.API_RATELIMIT_MAX_REQUEST),
-    message: 'Too many requests'
+    message: {message: 'Rate limit exceeded'}
 });
 
 const httpLogger = morgan('common', {

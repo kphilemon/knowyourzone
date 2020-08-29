@@ -5,7 +5,6 @@ const sinonChai = require("sinon-chai");
 const sandbox = require('sinon').createSandbox();
 const fs = require('fs');
 
-const app = require('../app');
 const cache = require('memory-cache');
 const logger = require('../utilities/logger');
 const hbsRenderer = require('../utilities/hbs-renderer');
@@ -14,6 +13,10 @@ chai.use(chaiHttp);
 chai.use(sinonChai);
 
 describe('App Integration Test', () => {
+    // to prevent the env variables set in .env file / system from affecting our tests
+    // setting it to 0 effectively by-passes them
+    process.env.API_RATELIMIT_MAX_REQUEST = 0;
+
     beforeEach(() => {
         sandbox.stub(logger, 'info');
         sandbox.stub(logger, 'warn');
@@ -23,13 +26,18 @@ describe('App Integration Test', () => {
     afterEach(() => {
         cache.clear();
         sandbox.restore();
+
+        // de-caching is needed because app module's config will be cached and test might be affected. e.g.: rate-limit configs
+        delete require.cache[require.resolve('../app')]
     });
 
     describe('GET /', () => {
+        // index.html in the public directory is git-ignored as it is dynamic based on data.
+        // A NEWLY-CLONED project will not include index.html. In this case, 404.html with status 404 will be returned
+        // Starting the server with 'node app.js' will create index.html and we shall expect a 200
+
         it('should return a 200 if index.html exists in public directory, else a 404 if it does not, both with html content', (done) => {
-            // index.html in the public directory is git-ignored as it is dynamic based on data.
-            // A NEWLY-CLONED project will not include index.html. In this case, 404.html with status 404 will be returned
-            // Starting the server with 'node app.js' will create index.html and we shall expect a 200
+            const app = require('../app');
 
             chai.request(app)
                 .get('/')
@@ -44,6 +52,8 @@ describe('App Integration Test', () => {
 
     describe('GET /non/existing/route', () => {
         it('should return a 404 with html content', (done) => {
+            const app = require('../app');
+
             chai.request(app)
                 .get('/a/non/existing/route')
                 .end((err, res) => {
@@ -57,6 +67,8 @@ describe('App Integration Test', () => {
 
     describe('GET /api/non/existing/api/route', () => {
         it('should return a 404 with json content if the route is an API route (routes with /api/*)', (done) => {
+            const app = require('../app');
+
             chai.request(app)
                 .get('/api/non/existing/api/route')
                 .end((err, res) => {
@@ -71,8 +83,8 @@ describe('App Integration Test', () => {
 
     describe('GET /api/data/covid19/latest', () => {
         it('should return a 200 with the cached data', (done) => {
-            // setting up the cache
-            cache.put('data', 'fake cache data');
+            const app = require('../app');
+            cache.put('data', 'fake cache data'); // setting up the cache
 
             chai.request(app)
                 .get('/api/data/covid19/latest')
@@ -86,6 +98,8 @@ describe('App Integration Test', () => {
         });
 
         it('should return a 404 when the data does not present in the cache', (done) => {
+            const app = require('../app');
+
             chai.request(app)
                 .get('/api/data/covid19/latest')
                 .end((err, res) => {
@@ -94,6 +108,36 @@ describe('App Integration Test', () => {
                     expect(res).to.have.status(404);
                     expect(res.body).to.deep.equal({message: 'Data currently unavailable'});
                     done();
+                });
+        });
+
+        it('should return a 429 when the rate limit is exceeded', (done) => {
+            // Configuring a rate limit of 1 request per 15 minutes
+            process.env.API_RATELIMIT_WINDOW = 900000;
+            process.env.API_RATELIMIT_MAX_REQUEST = 1;
+
+            const app = require('../app');
+            cache.put('data', 'fake cache data'); // setting up the cache
+
+            chai.request(app)
+                .get('/api/data/covid19/latest')
+                .end((err, res) => {
+                    // expect first response to be good
+                    expect(err).to.be.null;
+                    expect(res).to.be.json;
+                    expect(res).to.have.status(200);
+                    expect(res.body).to.deep.equal(cache.get('data'));
+
+                    // make a second request
+                    chai.request(app)
+                        .get('/api/data/covid19/latest')
+                        .end((err, res) => {
+                            expect(err).to.be.null;
+                            expect(res).to.be.json;
+                            expect(res).to.have.status(429);
+                            expect(res.body).to.deep.equal({message: 'Rate limit exceeded'});
+                            done();
+                        });
                 });
         });
     });
@@ -108,6 +152,7 @@ describe('App Integration Test', () => {
         });
 
         it('should replace the old cache data with new data, re-render index.html, and return a 200 with the cached data, if the request is good', (done) => {
+            const app = require('../app');
             const mockData = {
                 states: [{
                     name: 'foo',
@@ -138,6 +183,7 @@ describe('App Integration Test', () => {
         });
 
         it('should not replace the old cache data, should not re-render index.html, and return a 401 if the authorization fails', (done) => {
+            const app = require('../app');
             const mockData = {
                 states: [{
                     name: 'foo',
@@ -165,6 +211,7 @@ describe('App Integration Test', () => {
         });
 
         it('should not replace the old cache data, should not re-render index.html, and return a 400 if the schema validation of the request body fails', (done) => {
+            const app = require('../app');
             const mockData = {
                 states: [{
                     total: 'forty-two',
@@ -194,6 +241,7 @@ describe('App Integration Test', () => {
         });
 
         it('should not replace the old cache data, should not re-render index.html, and return a 500 if the rendering of index.html fails', (done) => {
+            const app = require('../app');
             const mockData = {
                 states: [{
                     name: 'foo',
