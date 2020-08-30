@@ -213,47 +213,8 @@
   ],
   "last_updated": 1594785600
 }</pre>
-                    <p class="text-sub">A response contains two fields:</p>
-                    <ul>
-                        <li><code>states</code>: An array of <code>state</code> objects. A normal response will have 16
-                            state objects (<a
-                                    href="https://en.wikipedia.org/wiki/States_and_federal_territories_of_Malaysia#States_and_federal_territories"
-                                    target="_blank" rel="noopener">13 states + 3 federal territories</a>) in its states
-                            field. In the event of missing data, a response may have fewer state objects.
-                        </li>
-                        <li><code>last_updated</code>: The time at which the data is updated in UTC epoch seconds.</li>
-                    </ul>
-
-                    <p class="text-sub">A state object contains three fields:</p>
-                    <ul>
-                        <li><code>name</code>: The name of the state or federal territory.</li>
-                        <li><code>total</code>: An integer indicating the number of <i>total active cases</i> in that
-                            particular state. It is the sum of active cases in all districts, excluding import cases.
-                        </li>
-                        <li><code>districts</code>: An object with name and total field.</li>
-                    </ul>
-
-                    <p class="text-heading mt-4">Rate Limiting</p>
-                    <p class="text-sub">All API requests are rate limited and are associated with the originating IP
-                        address. Each IP address can make up to 100 requests in 15 minutes.</p>
-                    <pre>HTTP/1.1 200 OK
-Date: Thu, 06 Aug 2020 07:51:15 GMT
-X-RateLimit-Limit: 100
-X-RateLimit-Remaining: 99
-X-RateLimit-Reset: 1596700549
-...</pre>
-                    <p class="text-sub">The returned HTTP headers show your current rate limit status:</p>
-                    <ul>
-                        <li><code>X-RateLimit-Limit</code>: The maximum number of requests you're permitted to make per
-                            15 minutes.
-                        </li>
-                        <li><code>X-RateLimit-Remaining</code>: The number of requests remaining in the current rate
-                            limit window.
-                        </li>
-                        <li><code>X-RateLimit-Reset</code>: The time at which the current rate limit window resets in
-                            UTC epoch seconds.
-                        </li>
-                    </ul>
+                    <p>Visit the <a href="https://github.com/kphilemon/knowyourzone/wiki/Data-API" target="_blank"
+                                    rel="noopener">official documentation</a> for in-depth API reference.</p>
                 </div>
             </div>
         </div>
