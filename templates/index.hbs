@@ -259,11 +259,11 @@
                             {{#each states}}
                             <div class="list-item border-left-{{color total}}" data-toggle="collapse"
                                  data-target="#item-{{@index}}">
-                                {{name}} ({{total}})
+                                {{name}} ({{format_number total}})
                             </div>
                             <div class="collapse" id="item-{{@index}}" data-parent="#data-list">
                                 {{#each districts}}
-                                <div class="list-inner-item border-right-{{color total}}">{{name}} ({{total}})</div>
+                                <div class="list-inner-item border-right-{{color total}}">{{name}} ({{format_number total}})</div>
                                 {{/each}}
                             </div>
                             {{/each}}
@@ -271,9 +271,9 @@
 
                         <div class="d-none" id="search-result-list">
                             {{#each states}}
-                            <div class="search-result-item border-left-{{color total}}">{{name}} ({{total}})</div>
+                            <div class="search-result-item border-left-{{color total}}">{{name}} ({{format_number total}})</div>
                             {{#each districts}}
-                            <div class="search-result-item border-left-{{color total}}">{{name}} ({{total}})</div>
+                            <div class="search-result-item border-left-{{color total}}">{{name}} ({{format_number total}})</div>
                             {{/each}}
                             {{/each}}
                             <div id="text-no-results">No matching districts/states found.<br><br>No idea which district

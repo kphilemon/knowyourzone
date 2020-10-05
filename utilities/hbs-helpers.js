@@ -17,6 +17,11 @@ const statesNameMapping = {
     PJY: ['putrajaya']
 };
 
+// toLocaleString() formats number to include thousands separator if applicable
+function formatNumber(number) {
+    return number.toLocaleString();
+}
+
 function getColorByTotal(total) {
     return (total > 40) ? 'red' : (total > 0) ? 'yellow' : (total === 0) ? 'green' : '';
 }
@@ -38,5 +43,6 @@ function extractStateById(stateId) {
 }
 
 
+module.exports.formatNumber = formatNumber;
 module.exports.getColorByTotal = getColorByTotal;
 module.exports.extractStateById = extractStateById;

@@ -1,9 +1,10 @@
 const fs = require('fs').promises;
 const Handlebars = require('handlebars');
 const minify = require('html-minifier').minify;
-const {getColorByTotal, extractStateById} = require('./hbs-helpers');
+const {formatNumber, getColorByTotal, extractStateById} = require('./hbs-helpers');
 
 // register custom helpers
+Handlebars.registerHelper('format_number', formatNumber);
 Handlebars.registerHelper('color', getColorByTotal);
 Handlebars.registerHelper('extract_state_by_id', extractStateById);
 

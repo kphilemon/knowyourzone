@@ -1,9 +1,36 @@
 const expect = require('chai').expect;
 
 const Handlebars = require('handlebars');
-const {getColorByTotal, extractStateById} = require('../utilities/hbs-helpers');
+const {formatNumber, getColorByTotal, extractStateById} = require('../utilities/hbs-helpers');
 
 describe('Handlebars Custom Helpers', () => {
+    describe("'format_number' helper", () => {
+        let template;
+
+        // register helper and set up template
+        before(async () => {
+            Handlebars.registerHelper('format_number', formatNumber);
+            template = await Handlebars.compile('{{format_number total}}');
+        });
+
+        it('should be registered', () => {
+            expect(Handlebars.helpers.format_number).to.exist;
+            expect(Handlebars.helpers.format_number).to.be.a('function');
+        });
+
+        it('should return a number with thousands separator when the number is greater than 1000', () => {
+            const data = {total: 1000};
+            const result = template(data);
+            expect(result).to.deep.equal('1,000');
+        });
+
+        it('should return a number as it is when the number is smaller than 1000', () => {
+            const data = {total: 100};
+            const result = template(data);
+            expect(result).to.deep.equal('100');
+        });
+    });
+
     describe("'color' helper", () => {
         let template;
 
