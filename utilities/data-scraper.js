@@ -39,12 +39,12 @@ function DOMScript(selector) {
 
     data.states = [];
     for (let i = 0; i < listItems.length; i++) {
-        // Title string format: Kuala Lumpur (10)
-        const title = listItems[i].querySelector('a').innerText.match(/(.*)\s*\((\d+)\)/);
+        // Title string format: Kuala Lumpur (1,000) *needs to cater for thousands separator
+        const title = listItems[i].querySelector('a').innerText.match(/(.*)\s*\(([\d,]+)\)/);
         if (title && title.length === 3) {
             data.states[i] = {
                 name: title[1].trim(),
-                total: parseInt(title[2]) || 0,
+                total: parseInt(title[2].replace(/,/g, '')) || 0,
                 districts: []
             };
 
