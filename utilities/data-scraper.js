@@ -44,7 +44,7 @@ function DOMScript(selector) {
         if (title && title.length === 3) {
             data.states[i] = {
                 name: title[1].trim(),
-                total: parseInt(title[2].replace(/,/g, '')) || 0,
+                total: parseInt(title[2].replace(/[^0-9]/g, '')) || 0,
                 districts: []
             };
 
@@ -54,7 +54,7 @@ function DOMScript(selector) {
                 if (tableColumns && tableColumns.length > 2) {
                     data.states[i].districts[j] = {
                         name: tableColumns[0].innerText.trim(),
-                        total: parseInt(tableColumns[1].innerText) || 0
+                        total: parseInt(tableColumns[1].innerText.replace(/[^0-9]/g, '')) || 0
                     };
                 }
             }
